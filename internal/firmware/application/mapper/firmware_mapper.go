@@ -12,20 +12,20 @@ func NewFirmwareMapper() *FirmwareMapper {
 	return &FirmwareMapper{}
 }
 
-func (m *FirmwareMapper) FromEntityToResponseDto(firmware *entity.Firmware) dto.FirmwareResponseDto{
+func (m *FirmwareMapper) FromEntityToResponseDto(firmware *entity.Firmware) dto.FirmwareResponseDto {
 	return dto.FirmwareResponseDto{
-		Id: firmware.Id(),
-		Name: firmware.Name(),
-		Version: firmware.Version(),
-		Checksum: firmware.Checksum(),
+		Id:         firmware.Id(),
+		Name:       firmware.Name(),
+		Version:    firmware.Version(),
+		Checksum:   firmware.Checksum(),
 		DeviceType: string(firmware.DeviceType()),
 	}
 }
 
-func (m *FirmwareMapper) FromUploadDtoToEntity(dto *dto.FirmwareUploadDto) (*entity.Firmware, error){
+func (m *FirmwareMapper) FromUploadDtoToEntity(dto *dto.FirmwareUploadDto) (*entity.Firmware, error) {
 	deviceType, err := deviceUtils.ParseDeviceType(dto.DeviceType)
-	if err != nil{
+	if err != nil {
 		return nil, err
 	}
-	return entity.New(nil, dto.Name, dto.Version, dto.Checksum, deviceType), nil
+	return entity.NewFirmware(nil, dto.Name, dto.Version, dto.Checksum, deviceType), nil
 }

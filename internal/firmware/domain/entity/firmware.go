@@ -10,41 +10,41 @@ type Firmware struct {
 	deviceType deviceEnum.DeviceType
 }
 
-func New(
+func NewFirmware(
 	id *uint64,
 	name string,
 	version string,
 	checksum string,
-	deviceType deviceEnum.DeviceType) *Firmware{
+	deviceType deviceEnum.DeviceType) *Firmware {
 	return &Firmware{
-		id: id,
-		name: name,
-		version: version,
-		checksum: checksum,
+		id:         id,
+		name:       name,
+		version:    version,
+		checksum:   checksum,
 		deviceType: deviceType,
 	}
 }
 
-func(f *Firmware) Id() uint64{
+func (f *Firmware) Id() uint64 {
 	return *f.id
 }
 
-func(f *Firmware) Name() string{
+func (f *Firmware) Name() string {
 	return f.name
 }
 
-func(f *Firmware) Version() string{
+func (f *Firmware) Version() string {
 	return f.version
 }
 
-func(f *Firmware) Checksum() string{
+func (f *Firmware) Checksum() string {
 	return f.checksum
 }
 
-func(f *Firmware) DeviceType() deviceEnum.DeviceType{
+func (f *Firmware) DeviceType() deviceEnum.DeviceType {
 	return f.deviceType
 }
 
-func(f *Firmware) Rename(name string){
+func (f *Firmware) Rename(name string) {
 	f.name = name
 }
