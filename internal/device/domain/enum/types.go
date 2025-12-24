@@ -1,11 +1,11 @@
-package device
+package enum
 
 type DeviceType string
 type DeviceStatus string
 
 const (
-	DeviceTypeESP32   DeviceType = "esp32"
+	DeviceTypeESP32 DeviceType = "esp32"
 
-	DeviceStatusOnline  DeviceStatus = "online"
+	DeviceStatusOnline DeviceStatus = "online"
 	DeviceStatusOffline DeviceStatus = "offline"
 )

@@ -1,16 +1,24 @@
-package device
+package entity
+
+import (
+	"time"
+
+	"github.com/perpavbek/ziyatcode-device-gateway/internal/device/domain/enum"
+)
 
 type Device struct {
-	uuid    string
-	name    string
-	dtype   DeviceType
-	address string
+	uuid     string
+	name     string
+	dtype    enum.DeviceType
+	address  string
+	status   enum.DeviceStatus
+	lastSeen *time.Time
 }
 
-func New(
+func NewDevice(
 	uuid string,
 	name string,
-	dtype DeviceType,
+	dtype enum.DeviceType,
 	address string,
 ) *Device {
 	return &Device{
@@ -29,7 +37,7 @@ func (d *Device) Name() string {
 	return d.name
 }
 
-func (d *Device) Type() DeviceType {
+func (d *Device) Type() enum.DeviceType {
 	return d.dtype
 }
 
